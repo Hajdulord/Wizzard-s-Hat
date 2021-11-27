@@ -1,0 +1,45 @@
+{
+    "name": "DefaultControls",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "f7bb6150-2c6b-471c-ab2b-3d9b773bfe95",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "PassThrough",
+                    "id": "ece58521-05f6-4700-86ae-c0e35f6d8e40",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7be8fab6-9562-426c-be0c-c81b6efe2fad",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3104509-03b2-4db1-86e3-e9b92eb62b5a",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
