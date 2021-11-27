@@ -1,0 +1,21 @@
+.button {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    min-width: 10%;
+    min-height: 5%;
+    background-color: rgba(209, 133, 121, 255);
+    color: rgba(255, 255, 255, 255);
+}
+
+.button:hover {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    min-width: 10%;
+    min-height: 5%;
+    background-color: rgb(183, 78, 61);
+    color: rgb(255, 255, 255);
+}

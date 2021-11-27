@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/button.uss?fileID=7433441132597879392&amp;guid=f78991384265dc749a6747eb39046676&amp;type=3#button" />
+    <ui:VisualElement name="MainContainer" style="position: relative; left: 0; top: 0; right: 100%; bottom: 0; flex-basis: 100%; align-items: center; justify-content: center; background-color: rgba(219, 181, 181, 0.33); -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" class="button" />
+        <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" class="button" />
+    </ui:VisualElement>
+</ui:UXML>
