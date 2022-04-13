@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using WizzardsHat.Player;
@@ -7,10 +8,11 @@ namespace WizzardsHat.UI
     public class Menu : MonoBehaviour
     {
         [SerializeField] private UIDocument _uiDocument;
-        [SerializeField] private PlayerController _player;
-        
+
         private Button _startButton;
         private Button _exitButton;
+
+        public event Action StartButtonPressed;
 
         private void Awake()
         {
@@ -24,7 +26,7 @@ namespace WizzardsHat.UI
         private void OnStartButtonPressed()
         {
             _uiDocument.rootVisualElement.style.visibility = Visibility.Hidden;
-            _player.UnlockConstrains();
+            StartButtonPressed!.Invoke();
         }
 
         private void OnExitButtonPressed()
