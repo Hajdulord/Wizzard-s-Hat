@@ -10,6 +10,7 @@ namespace WizzardsHat.Player
         [Header("Assigned Fields")]
         [SerializeField] private Rigidbody2D _rigidbody2D = null!;
         [SerializeField] private UIDocument _scoreUI = null!;
+        [SerializeField] private EndScreen _endScreen = null!;
         [Header("Adjustable properties")]
         [SerializeField] private float _jumpForce = 8f;
 
@@ -49,6 +50,13 @@ namespace WizzardsHat.Player
         {
             _isEndOfGame = true;
             Destroy(_rigidbody2D);
+
+            _scoreUI.rootVisualElement.style.visibility = Visibility.Hidden;
+            _endScreen.EndScreenDocument.rootVisualElement.style.visibility = Visibility.Visible;
+
+            _endScreen.ScoreLabel.text = _scoreLabel.text;
+
+            Time.timeScale = 0f;
         }
 
         private void OnTriggerExit2D(Collider2D col)

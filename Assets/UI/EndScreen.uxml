@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/button.uss?fileID=7433441132597879392&amp;guid=f78991384265dc749a6747eb39046676&amp;type=3#button" />
+    <ui:Label text="0" display-tooltip-when-elided="true" name="Score" style="align-items: center; justify-content: center; position: absolute; left: 45%; right: 45%; top: 10%; font-size: 100px; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); color: rgb(255, 255, 255); -unity-font-style: bold; -unity-text-align: upper-center;" />
+    <ui:VisualElement style="-unity-text-align: upper-center; justify-content: center; align-items: center; top: 40%; flex-direction: row;">
+        <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="button" style="align-items: center; justify-content: center;" />
+        <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" class="button" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,41 +1,43 @@
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace WizzardsHat.UI
 {
-    public class Menu : MonoBehaviour
+    public class EndScreen : MonoBehaviour
     {
         [SerializeField] private UIDocument _uiDocument;
 
-        private Button _startButton;
+        private Button _restartButton;
         private Button _exitButton;
-
-        public event Action StartButtonPressed;
-
+        
+        public Label ScoreLabel { get; private set; }
+        public UIDocument EndScreenDocument => _uiDocument;
+        
         private void Awake()
         {
-            _startButton = _uiDocument.rootVisualElement.Q<Button>("Start");
+            _restartButton = _uiDocument.rootVisualElement.Q<Button>("Restart");
             _exitButton = _uiDocument.rootVisualElement.Q<Button>("Exit");
+            ScoreLabel = _uiDocument.rootVisualElement.Q<Label>("Score");
 
-            _startButton.clicked += OnStartButtonPressed;
+            _restartButton.clicked += OnStartButtonPressed;
             _exitButton.clicked += OnExitButtonPressed;
+            
+            _uiDocument.rootVisualElement.style.visibility = Visibility.Hidden;
         }
 
         private void OnStartButtonPressed()
         {
             _uiDocument.rootVisualElement.style.visibility = Visibility.Hidden;
-            StartButtonPressed!.Invoke();
         }
 
         private void OnExitButtonPressed()
         {
             Application.Quit();
         }
-        
+
         private void OnDestroy()
         {
-            _startButton.clicked -= OnStartButtonPressed;
+            _restartButton.clicked -= OnStartButtonPressed;
             _exitButton.clicked -= OnExitButtonPressed;
         }
     }
