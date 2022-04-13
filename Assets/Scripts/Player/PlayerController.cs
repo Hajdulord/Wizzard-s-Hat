@@ -1,22 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 using WizzardsHat.UI;
 
 namespace WizzardsHat.Player
 {
     public class PlayerController : MonoBehaviour
-    {
+    {   
+        [Header("Assigned Fields")]
         [SerializeField] private Rigidbody2D _rigidbody2D = null!;
+        [SerializeField] private UIDocument _scoreUI = null!;
+        [Header("Adjustable properties")]
         [SerializeField] private float _jumpForce = 8f;
 
         private Menu _menu;
         private bool _isEndOfGame;
+        private Label _scoreLabel;
 
-        public int Score { get; private set; }
+        private int _score;
 
         private void Awake()
         {
             LockConstrains();
+            _scoreLabel = _scoreUI.rootVisualElement.Q<Label>("Score");
             _menu = FindObjectOfType<Menu>();
             _menu.StartButtonPressed += UnlockConstrains;
         }
@@ -49,7 +55,8 @@ namespace WizzardsHat.Player
         {
             if (col.isTrigger && col.CompareTag("Pipe"))
             {
-                Score++;
+                _score++;
+                _scoreLabel.text = _score.ToString();
             }
         }
     }
