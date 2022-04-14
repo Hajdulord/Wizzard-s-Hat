@@ -1,4 +1,5 @@
 using UnityEngine;
+using WizzardsHat.Player;
 using WizzardsHat.UI;
 
 namespace WizzardsHat.Pipes
@@ -14,6 +15,8 @@ namespace WizzardsHat.Pipes
         private bool _gameStarted;
         private float _nextSpawnTime;
         private float _cameraBoundingBoxVerticalExtent;
+        private PlayerController _player;
+        private EndScreen _endScreen;
 
         private void Awake()
         {
@@ -23,6 +26,12 @@ namespace WizzardsHat.Pipes
             _menu = FindObjectOfType<Menu>();
             _menu.StartButtonPressed += OnStart;
             PipeObjectPool.Instance.AddPool(_count);
+            
+            _player = FindObjectOfType<PlayerController>();
+            _player.GameEndAction += OnGameEnd;
+            
+            _endScreen = FindObjectOfType<EndScreen>();
+            _endScreen.GameRestart += OnStart;
         }
 
         private void Update()
@@ -44,9 +53,14 @@ namespace WizzardsHat.Pipes
 
         private void OnStart() => _gameStarted = true;
 
+        private void OnGameEnd() => _gameStarted = false;
+
         private void OnDestroy()
         {
             _menu.StartButtonPressed -= OnStart;
+            _player.GameEndAction -= OnGameEnd;
+            _endScreen.GameRestart -= OnStart;
         }
+        
     }
 }

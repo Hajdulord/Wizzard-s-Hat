@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using WizzardsHat.Player;
 
 namespace WizzardsHat.Pipes
 {
@@ -9,6 +9,7 @@ namespace WizzardsHat.Pipes
         [SerializeField] private float _speed = 4f;
 
         private PolygonCollider2D _cameraBoundingBox;
+        private PlayerController _player;
         private float _maxMovementPosition;
 
         private void Awake()
@@ -17,6 +18,8 @@ namespace WizzardsHat.Pipes
             _maxMovementPosition = -(_cameraBoundingBox.bounds.extents.x 
                                    + GetComponentInChildren<BoxCollider2D>().bounds.extents.x * 2 
                                    + 1);
+            _player = FindObjectOfType<PlayerController>();
+            _player.GameEndAction += OnGameEnd;
         }
 
         private void Update()
@@ -27,6 +30,16 @@ namespace WizzardsHat.Pipes
             }
             
             transform.Translate(new Vector3(-_speed * Time.deltaTime, 0, 0));
+        }
+
+        private void OnGameEnd()
+        {
+            PipeObjectPool.Instance.ReturnToQueue(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            _player.GameEndAction -= OnGameEnd;
         }
     }
 }
